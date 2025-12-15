@@ -42,6 +42,15 @@ h1 {
     font-size: 6rem;
     font-weight: 600;
 }
+.timerActive {
+    color: rgb(36, 181, 88);
+    text-shadow: 0 0 20px rgb(36, 181, 88);
+    transition: color 0.2s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+.timerInactive {
+    color: rgb(244, 192, 37);
+    text-shadow: 0 0 20px rgb(244, 192, 37);
+}
 #buttonHolder {
     margin-top: 3rem;
     margin-bottom: 3rem;
