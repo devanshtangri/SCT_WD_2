@@ -65,7 +65,7 @@ h1 {
     box-shadow: 0 0 25px -10px rgb(36, 181, 88);
     transition: box-shadow 0.2s ease-in-out, scale 50ms ease-in-out;
 }
-.startButtonInactive:active, .startButtonActive:active {
+.startButtonInactive:active, .startButtonActive:active, #lapButton:active, #resetButton:active {
     scale: 0.95;
 }
 .startButtonInactive:hover {
@@ -94,15 +94,31 @@ h1 {
 }
 #lapButton {
     color: white;
+    transition: all 0.2s ease-in-out, scale 50ms ease-in-out;
+}
+#lapButton:hover {
+    background-color: rgb(43, 48, 59);
 }
 #lapButton:disabled, #resetButton:disabled {
     opacity: 0.5;
     cursor: default;
+    pointer-events: none;
 }
 #resetButton {
     background-color: rgb(22, 27, 34);
     border: 2px solid rgb(118, 31, 34);
     color: rgb(217, 38, 38);
+    transition: all 0.2s ease-in-out, scale 50ms ease-in-out;
+}
+#resetButton svg g {
+    transition: all 0.2s ease-in-out;
+}
+#resetButton:hover {
+    background-color: rgb(217, 38, 38);
+    color: white;
+}
+#resetButton:hover svg g {
+    fill: white;
 }
 #lapRecords {
     margin-top: 3rem;
