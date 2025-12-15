@@ -97,6 +97,8 @@ resetButton.addEventListener("click", () => {
     lapRecords.classList.remove("tableVisible");
     lapRecords.classList.add("tableHidden");
 
+    lapsBody.innerHTML = "";
+
     resetButton.disabled = true;
 });
 // Reset Button Handler //
