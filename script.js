@@ -14,6 +14,8 @@ let enabled = false;
 let watchTime = 0;
 // Helper Variables //
 
+
+// Start Flow //
 function startEnable () {
     startButton.classList.remove("startButtonInactive");
     startButton.classList.add("startButtonActive");
@@ -26,6 +28,10 @@ function startEnable () {
     lapButton.disabled = false;
     resetButton.disabled = false;
 }
+// Start Flow //
+
+
+// End Flow //
 function startDisable () {
     startButton.classList.remove("startButtonActive");
     startButton.classList.add("startButtonInactive");
@@ -37,6 +43,10 @@ function startDisable () {
     statusP.innerHTML = "Paused";
     statusP.style.color = "rgb(244, 192, 37)";
 }
+// End Flow //
+
+
+// Start Event Handler //
 startButton.addEventListener("click", () => {
     if (!enabled) {
         startEnable();
@@ -47,9 +57,17 @@ startButton.addEventListener("click", () => {
         enabled = false;
     }
 });
+// Start Event Handler //
+
+
+// Time Parsing Helper Function //
 function parseTime (time) {
     return `${String(Math.trunc(time / 6000)).padStart(2, "0")}:${String(Math.trunc(time / 100)).padStart(2, "0")}:${String(time % 100).padStart(2, "0")}`;
 }
+// Time Parsing Helper Function //
+
+
+// Recursive Counting Function //
 function counter () {
     if (enabled) {
         timerDisplay.innerHTML = parseTime(watchTime);
@@ -59,7 +77,10 @@ function counter () {
         }, 10);
     }
 }
+// Recursive Counting Function //
 
+
+// Reset Button Handler //
 resetButton.addEventListener("click", () => {
     enabled = false;
     startDisable();
@@ -78,7 +99,10 @@ resetButton.addEventListener("click", () => {
 
     resetButton.disabled = true;
 });
+// Reset Button Handler //
 
+
+// Lap Button Handler //
 lapButton.addEventListener("click", () => {
     lapRecords.classList.remove("tableHidden");
     lapRecords.classList.add("tableVisible");
@@ -96,3 +120,4 @@ lapButton.addEventListener("click", () => {
 
     lapsBody.prepend(row);
 });
+// Lap Button Handler //
