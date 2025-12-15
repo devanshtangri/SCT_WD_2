@@ -4,6 +4,7 @@ const statusP = document.querySelector("#status");
 const startButton = document.querySelector("#startButton");
 const lapButton = document.querySelector("#lapButton");
 const resetButton = document.querySelector("#resetButton");
+const lapRecords = document.querySelector("#lapRecords");
 const lapsBody = document.querySelector("tbody");
 // Constant Variables //
 
@@ -46,10 +47,12 @@ startButton.addEventListener("click", () => {
         enabled = false;
     }
 });
-
+function parseTime (time) {
+    return `${String(Math.trunc(time / 6000)).padStart(2, "0")}:${String(Math.trunc(time / 100)).padStart(2, "0")}:${String(time % 100).padStart(2, "0")}`;
+}
 function counter () {
     if (enabled) {
-        timerDisplay.innerHTML = `${String(Math.trunc(watchTime / 6000)).padStart(2, "0")}:${String(Math.trunc(watchTime / 100)).padStart(2, "0")}:${String(watchTime % 100).padStart(2, "0")}`;
+        timerDisplay.innerHTML = parseTime(watchTime);
         setTimeout(() => {
             watchTime++;
             counter();
@@ -70,6 +73,26 @@ resetButton.addEventListener("click", () => {
     statusP.innerHTML = "Ready";
     statusP.style.color = "rgb(143, 150, 163)";
 
-    resetButton.disabled = true;
-})
+    lapRecords.classList.remove("tableVisible");
+    lapRecords.classList.add("tableHidden");
 
+    resetButton.disabled = true;
+});
+
+lapButton.addEventListener("click", () => {
+    lapRecords.classList.remove("tableHidden");
+    lapRecords.classList.add("tableVisible");
+
+    let row = document.createElement("tr");
+    let lapTime;
+    if (lapsBody.children.length !== 0) {
+        lapTime = watchTime - Number(lapsBody.children[0].dataset.lapTime);
+    } else {
+        lapTime = 0;
+    }
+
+    row.dataset.lapTime = watchTime;
+    row.innerHTML = `<td>#${lapsBody.children.length + 1}</td><td>${parseTime(lapTime)}</td><td>${parseTime(watchTime)}</td>`;
+
+    lapsBody.prepend(row);
+});

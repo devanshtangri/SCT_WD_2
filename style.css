@@ -130,13 +130,18 @@ h1 {
     fill: white;
 }
 #lapRecords {
-    margin-top: 3rem;
     width: 75%;
-    height: 0rem;
-    /* height: 24.5rem; */
     overflow-y: scroll;
     scrollbar-color: rgb(43, 48, 59) transparent;
-    display: none;
+    transition: all 0.2s ease-in-out;
+}
+.tableVisible {
+    margin-top: 3rem;
+    height: 24.5rem;
+}
+.tableHidden {
+    margin-top: 0;
+    height: 0;
 }
 #lapRecords table {
     width: 100%;
