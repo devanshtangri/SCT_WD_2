@@ -1,0 +1,52 @@
+* {
+    padding: 0;
+    margin: 0;
+    /* border: 1px solid white; */
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+.flex-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+body {
+    background-color: rgb(21, 23, 31);
+    font-family: Ubuntu, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: white;
+    height: 100dvh;
+}
+h1 {
+    font-size: 4rem;
+}
+#container {
+    width: 50rem;
+    height: 30rem;
+    margin-top: 1.5rem;
+    background-color: rgb(25, 28, 37);
+    border: 1px solid rgb(34, 38, 47);
+    border-radius: 2rem;
+}
+#timerDisplay {
+    font-family: 'Jetbrains Mono';
+    font-size: 6rem;
+    font-weight: 600;
+}
+#buttonHolder {
+    width: 100%;
+}
+#buttonHolder button {
+    border: 0;
+    width: 25%;
+    justify-content: space-evenly;
+}
+#buttonHolder button svg {
+    width: 10%;
+}
