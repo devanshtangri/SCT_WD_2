@@ -28,11 +28,14 @@ h1 {
 }
 #container {
     width: 50rem;
-    height: 30rem;
+    padding: 4rem 0rem;
     margin-top: 1.5rem;
     background-color: rgb(25, 28, 37);
     border: 1px solid rgb(34, 38, 47);
     border-radius: 2rem;
+}
+#container p, #lapRecords thead {
+    color: rgb(143, 150, 163);
 }
 #timerDisplay {
     font-family: 'Jetbrains Mono';
@@ -40,13 +43,71 @@ h1 {
     font-weight: 600;
 }
 #buttonHolder {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
     width: 100%;
+    gap: 2rem;
 }
 #buttonHolder button {
-    border: 0;
     width: 25%;
-    justify-content: space-evenly;
+    height: 4rem;
+    border-radius: 1rem;
+    gap: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 #buttonHolder button svg {
-    width: 10%;
+    height: 1em;
+}
+#startButton {
+    background-color: rgb(36, 181, 88);
+    box-shadow: 0 0 25px -10px rgb(36, 181, 88);
+    border: 0;
+    transition: box-shadow 0.2s ease-in-out;
+    transition: scale 50ms ease-in-out;
+}
+#startButton:hover {
+    box-shadow: 0 0 25px 0px rgb(36, 181, 88);
+}
+#startButton:active {
+    scale: 0.95;
+}
+#lapButton {
+    background-color: rgb(22, 27, 34);
+    border: 2px solid rgb(31, 38, 47);
+}
+#lapButton {
+    color: white;
+}
+#lapButton:disabled {
+    opacity: 0.5;
+}
+#resetButton {
+    background-color: rgb(22, 27, 34);
+    border: 2px solid rgb(118, 31, 34);
+    color: rgb(217, 38, 38);
+}
+#resetButton:disabled {
+    opacity: 0.5;
+}
+#lapRecords {
+    margin-top: 3rem;
+    width: 75%;
+    height: 0rem;
+    /* height: 24.5rem; */
+    overflow-y: scroll;
+    scrollbar-color: rgb(43, 48, 59) transparent;
+    display: none;
+}
+#lapRecords table {
+    width: 100%;
+    border-collapse: collapse;
+}
+#lapRecords td, #lapRecords th {
+    height: 3.5rem;
+}
+#lapRecords table tbody tr {
+    text-align: center;
+    font-family: 'Jetbrains Mono';
+    border-top: 1px solid rgb(45, 50, 61);
 }
